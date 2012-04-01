@@ -1,4 +1,5 @@
 Focmobile::Application.routes.draw do
+  match "cache.manifest" => "manifest#show", :as => :manifest
   match ":action.html" => "static_pages#:action", :as => :static_page
   root :to =>"static_pages#sort_home"
   # The priority is based upon order of creation:
