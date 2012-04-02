@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/wycats/rack-offline.git
+  revision: 4b92a41c23f2b2e2167610f17e388db606b5046a
+  specs:
+    rack-offline (0.6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -107,6 +113,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   pg
+  rack-offline!
   rails (= 3.2.0)
   sass-rails (~> 3.2.3)
   sqlite3

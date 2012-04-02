@@ -26,7 +26,7 @@ group :development do
   gem 'sqlite3'
 end
 
-
+gem 'rack-offline', :git => 'git://github.com/wycats/rack-offline.git'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
