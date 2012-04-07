@@ -12,7 +12,9 @@ $(function () {
 		appCache.addEventListener("cached", complete, false);
 		appCache.addEventListener("error", failure, false);
 	}
-
+    if(!navigator.onLine){
+        display_toast("showSuccessToast","You are not online but content is cached for offline reading!");
+    }
     function display_toast(toastType, message){
         $().toastmessage({stayTime: 10000, position: 'left-bottom'});
         $().toastmessage(toastType, message);

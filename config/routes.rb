@@ -1,8 +1,9 @@
 Focmobile::Application.routes.draw do
 
   #match "cache.manifest" => "manifest#show", :as => :manifest
+  match "/application.manifest" => "manifest#show"
 
-  match "/application.manifest" => OFFLINE
+  #match "/application.manifest" => OFFLINE
 
   match ":action.html" => "static_pages#:action", :as => :static_page
   root :to =>"static_pages#sort_home"
