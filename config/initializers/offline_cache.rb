@@ -1,4 +1,4 @@
-OFFLINE = Rack::Offline.configure do
+OFFLINE = Rack::Offline.configure :cache_interval => 20 do
   cache "/insertion_sort.html"
   cache "/sort_home.html"
   public_path = Rails.root.join("public")
