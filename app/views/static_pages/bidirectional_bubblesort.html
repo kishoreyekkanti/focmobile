@@ -1,0 +1,81 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Bidirectional Bubble Sort</h1>
+        <a href="sort_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>
+            Cocktail sort, also known as bidirectional bubble sort, cocktail shaker sort, shaker sort (which can also
+            refer to a variant of selection sort), ripple sort, shuffle sort,[1] shuttle sort or happy hour sort, is a
+            variation of bubble sort that is both a stable sorting algorithm and a comparison sort. The algorithm
+            differs from a bubble sort in that it sorts in both directions on each pass through the list. This sorting
+            algorithm is only marginally more difficult to implement than a bubble sort, and solves the problem of
+            turtles in bubble sorts.
+        </p>
+
+        <p>
+            Quicksort exhibits worst-case quadratic behavior if the partitioning at each recursive step only divides a
+            collection of n elements
+            into an "empty" and "large" set, where one of these sets has no elements and the other has n-1 (note that
+            the pivot elements provides the last of hte n elements, so no element is lost)
+        </p>
+
+        <h3>Algorithm implementation in Python</h3>
+        <code>
+            def cocktail_sort(A): <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;for k in range(len(A)-1, 0, -1):<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = False<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in range(k, 0, -1):<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if A[i] < A[i-1]:<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i], A[i-1] = A[i-1], A[i]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = True<br/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in range(k):<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if A[i] > A[i+1]:<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A[i], A[i+1] = A[i+1], A[i]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = True<br/>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if not swapped:<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return A<br/>
+
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>O(n<sup>2</sup>) for both worst and average cases</li>
+            <li>O(n) if the list is mostly ordered before applying the sorting algorithm</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>Cocktail sort is a slight variation of bubble sort. It differs in that instead of repeatedly passing through
+            the list from bottom to top, it passes alternately from bottom to top and then from top to bottom. It can
+            achieve slightly better performance than a standard bubble sort. The reason for this is that bubble sort
+            only passes through the list in one direction and therefore can only move items backward one step each
+            iteration.
+            An example of a list that proves this point is the list (2,3,4,5,1), which would only need to go through one
+            pass of cocktail sort to become sorted, but if using an ascending bubble sort would take four passes.
+            However one cocktail sort pass should be counted as two bubble sort passes. Typically cocktail sort is less
+            than two times faster than bubble sort.
+            Another optimization can be that the algorithm remembers where the last actual swap has been done. In the
+            next iteration, there will be no swaps beyond this limit and the algorithm has shorter passes. As the
+            Cocktail sort goes bidirectionally, the range of possible swaps, which is the range to be tested, will
+            reduce per pass, thus reducing the overall running time.</p>
+
+        <h3>Visual guide</h3>
+
+        <p><img src="assets/bidirectional_bubble.gif" width="180" height="130">
+        </p>
+
+    </div>
+    <!-- /content -->
+
+</div><!-- /page -->

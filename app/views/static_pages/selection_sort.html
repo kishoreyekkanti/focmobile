@@ -1,0 +1,59 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Selection Sort</h1>
+        <a href="sort_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span class="ui-btn-text">My button</span><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>Given a pile of cards with numbers on them, a common way to sort the pile is to select and remove the largest
+            card, and then repeat
+            the process until all cards are gone. This approach describes SELECTION SORT, which sort in place the
+            elements in A[0,n]
+            It has O(n<sup>2</sup>) time complexity, making it inefficient on large lists, and generally performs worse
+            than the
+            similar insertion sort. Selection sort is noted for its simplicity, and also has performance advantages over
+            more complicated algorithms in certain situations, particularly where auxiliary memory is limited.
+        </p>
+
+        <h3>Algorithm</h3>
+        <code>
+            for i = 1:n,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;k = i<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;for j = i+1:n, if a[j] < a[k], k = j<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;→ invariant: a[k] smallest of a[i..n]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;swap a[i,k]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;→ invariant: a[1..i] in final position<br/>
+            end
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>Not stable</li>
+            <li>O(1) extra space</li>
+            <li>Θ(n<sup>2</sup>) comparisons</li>
+            <li>Θ(n) swaps</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>From the comparions presented here, one might conclude that selection sort should never be used. It does not
+            adapt to the data in any way (notice that the four animations above run in lock step), so its runtime is
+            always quadratic.
+
+            However, selection sort has the property of minimizing the number of swaps. In applications where the cost
+            of swapping items is high, selection sort very well may be the algorithm of choice.</p>
+
+        <h3>Visual guide</h3>
+
+        <p><img src="assets/selection_sort.gif" width="75" height="200"></p>
+
+    </div>
+    <!-- /content -->
+</div><!-- /page -->

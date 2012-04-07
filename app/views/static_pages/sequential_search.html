@@ -1,0 +1,70 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Sequential Search</h1>
+        <a href="search_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span class="ui-btn-text">My button</span><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>
+            Linear search or sequential search is a method for finding a particular value in a list, that consists of
+            checking every one of its elements, one at a time and in sequence, until the desired one is found.
+            Linear search is the simplest search algorithm; it is a special case of brute-force search. Its worst case
+            cost is proportional to the number of elements in the list; and so is its expected cost, if all list
+            elements are equally likely to be searched for. Therefore, if the list has more than a few elements, other
+            methods (such as binary search or hashing) will be faster, but they also impose additional requirements.
+        </p>
+
+        <p>
+            Sometimes you need to locate an element in a collection. You may have to find elements in the collection
+            frequently, and the collection may or may not be ordered. With no further knowledge about the information
+            that
+            might be in the collection, sequential search gets the job done in the brute force manner. It is the only
+            search algorithm you can use if the collection is accessible only through an iterator that returns the
+            elements of the collection one at a time.
+        </p>
+
+        <h3>Algorithm</h3>
+        <code>
+            <b>search(A, t)</b> <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;for i=0 to n-1 do<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (A[i] = t) then<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true  <br/>
+            &nbsp;&nbsp; return false <br/>
+            end <p/>
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>O(n) worst case performance</li>
+            <li>O(1) best case performance</li>
+            <li>O(n) Average case performance</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>For small collections of unordered elements, sequential search is easy to implement and reasonably efficient.
+            The worst case is when you search for an item not in the collection, since yu must inspect every element in
+            the collection. If the predominant
+            result of a search is false, you may want to consider a different search algorithm, even when the collection
+            is relatively small. <br/>
+            If the collection is unordered and stored as linked list, then inserting an element is a constant time
+            operation.
+            Frequent insertions into an array-based collection required dynamic array management, which is either
+            provided by the underlying
+            programming language or required specific attention by the programmer. In both cases the expected time to
+            find an element
+            is O(n); thus, removing an element takes at least O(n)
+
+        </p>
+
+    </div>
+    <!-- /content -->
+
+</div><!-- /page -->

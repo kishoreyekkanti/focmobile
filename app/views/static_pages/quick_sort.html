@@ -1,0 +1,90 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Quick Sort</h1>
+        <a href="sort_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span class="ui-btn-text">My button</span><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>
+            Quicksort is a sorting algorithm developed by Tony Hoare that, on average, makes comparisons to sort n
+            items. In the worst case, it makes comparisons, though this behavior is rare. Quicksort is often faster in
+            practice than other algorithms. Additionally, quicksort's sequential and localized memory references work
+            well with a cache. Quicksort can be implemented with an in-place partitioning algorithm, so the entire sort
+            can be done with only additional space.
+        </p>
+
+        <p>
+            Quicksort exhibits worst-case quadratic behavior if the partitioning at each recursive step only divides a
+            collection of n elements
+            into an "empty" and "large" set, where one of these sets has no elements and the other has n-1 (note that
+            the pivot elements provides the last of hte n elements, so no element is lost)
+        </p>
+
+        <h3>Algorithm</h3>
+        <code>
+            <b>sort(A)</b> <br/>
+            &nbsp;&nbsp; quickSort(A, 0, n-1)
+            end <p/>
+
+            <b>quickSort(A, left, right)</b> <br/>
+            &nbsp;&nbsp;&nbsp;if(left < right) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;pi = partition(A, left, right)<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;quickSort(A, left, pi - 1)<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;quickSort(A, pi + 1, right)<br/>
+            end <p/>
+
+            <b>partition(A, left, right)</b> <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;p = select pivot in A[left, right] <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;swap A[p] and A[right] <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;store = left<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;for i= left to right - 1 do<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(A[i] <= A[right]) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; swap A[i] and A[store] <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; store ++ <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;swap A[store] and A[right]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;return store<br/>
+            end <br/>
+
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>Not stable</li>
+            <li>O(log(n)) extra space</li>
+            <li>O(n<sup>2</sup>) time, but typically O(n·log(n)) time</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>When carefully implemented, quick sort is robust and has low overhead. When a stable sort is not needed,
+            quick sort is an excellent general-purpose sort -- although the 3-way partitioning version should always be
+            used instead.
+
+            The 2-way partitioning code shown above is written for clarity rather than optimal performance; it exhibits
+            poor locality, and, critically, exhibits O(n2) time when there are few unique keys.The robust partitioning
+            produces balanced recursion when there are many values equal to the pivot, yielding probabilistic guarantees
+            of O(n·lg(n)) time and O(lg(n)) space for all inputs.
+
+            With both sub-sorts performed recursively, quick sort requires O(n) extra space for the recursion stack in
+            the worst case when recursion is not balanced. This is exceedingly unlikely to occur, but it can be avoided
+            by sorting the smaller sub-array recursively first; the second sub-array sort is a tail recursive call,
+            which may be done with iteration instead. With this optimization, the algorithm uses O(lg(n)) extra space in
+            the worst case.</p>
+
+        <h3>Visual guide</h3>
+
+        <p><img src="assets/quick_sort_animation.gif" width="180" height="130">
+            <img src="assets/quick_sort_nodes.gif" width="180" height="130">
+        </p>
+
+    </div>
+    <!-- /content -->
+
+</div><!-- /page -->

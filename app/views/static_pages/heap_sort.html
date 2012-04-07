@@ -1,0 +1,83 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Heap Sort</h1>
+        <a href="sort_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>
+            Heapsort is a comparison-based sorting algorithm to create a sorted array (or list), and is part of the
+            selection sort family. Although somewhat slower in practice on most machines than a well implemented
+            quicksort, it has the advantage of a more favorable worst-case O(n log n) runtime. Heapsort is an in-place
+            algorithm, but is not a stable sort. Because it moves elements around quite frequently, it should not be
+            used for value-based data. Heap sort avoids many of the nasty (almost embarrassing!) cases that cause
+            Quciksort to perform badly. Nonetheless, in the average case Quicksort out performs Heapsort
+        </p>
+
+        <h3>Algorithm</h3>
+        <code>
+            <b>sort(A)</b> <br/>
+            &nbsp;&nbsp; <b>buildHeap(A)</b>
+            &nbsp;&nbsp;&nbsp;&nbsp;for i = n - 1 downto 1 do <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap A[0] with A[i] <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;insert(A, i, A[i]) <br/>
+            end <p/>
+
+            <b>buildHeap(A)</b> <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;for i = n/2 -1 downto 0 do <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heapify(A, i, n)
+            end <p/>
+            
+            <b>heapify(A, idx, max)</b> <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;left = 2*idx +1 <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;right = 2*idx +2 <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;if(left < max and A[left] > A[idx]) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = left<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;else largest = idx <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;if(right < max and A[right] > A[largest]) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = right<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;if(largest != idx) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap A[i] and A[largest]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>heapify(A, largest, max)</b><br/>
+            
+            
+            end <br/>
+
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>Not stable</li>
+            <li>O(1) extra space</li>
+            <li>O(n.log(n)) time</li>
+            <li>not really adaptive</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>Heap sort is simple to implement, performs an O(n·log(n)) in-place sort, but is not stable.
+
+            Both phases are slightly adaptive, though not in any particularly useful manner. In the nearly sorted case,
+            the heapify phase destroys the original order. In the reversed case, the heapify phase is as fast as
+            possible since the array starts in heap order, but then the sort down phase is typical. In the few unique
+            keys case, there is some speedup but not as much as in shell sort or 3-way quicksort.</p>
+
+        <h3>Visual guide</h3>
+
+        <p><img src="assets/heap_sort.gif" width="180" height="130">
+            <img src="assets/heap_sort_nodes.gif" width="180" height="130">
+        </p>
+
+    </div>
+    <!-- /content -->
+
+    <!-- /footer -->
+
+</div><!-- /page -->

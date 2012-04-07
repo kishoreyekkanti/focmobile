@@ -1,0 +1,64 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Binary Search</h1>
+        <a href="search_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>
+            Binary search is a fast algorithm for searching in a sorted array of keys. To look up a name in a telephone
+            book with n names, you start by comparing the name that you want with the middle or (n/2)nd name, say \em
+            Monroe, Marilyn. Regardless of whether what you are looking someone before this middle name (Dean, James) or
+            after it (Presley, Elvis), after this first comparison you can forever disregard one half of all the names
+            in the book. The number of steps the algorithm takes equals the number of times we can halve n until only
+            one name is left. Thus twenty comparisons suffice to find any name in the million-name Manhattan phone book!
+            The power of binary search and logarithms is one of the most fundamental idea in the analysis of algorithms.
+            This power becomes apparent if we imagine living in a world with only unsorted telephone books.
+        </p>
+
+        <h3>Algorithm</h3>
+        <code>
+            <b>search(A, t)</b> <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;low = 0 <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;high = n - 1<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;while(low <= high) do<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ix = (low+high)/2<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t = A[ix]) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if(t < A[ix]) then <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high = ix - 1 <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else low = ix + 1 <br/>
+            &nbsp;&nbsp; return false <br/>
+            end <p/>
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>O(log n) worst case performance</li>
+            <li>O(1) best case performance</li>
+            <li>O(log n) Average case performance</li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>Searching a sorted collection is a common task. A dictionary is a sorted list of word definitions. Given a
+            word, one can find its definition. A telephone book is a sorted list of people's names, addresses, and
+            telephone numbers. Knowing someone's name allows one to quickly find their telephone number and address.
+            If the list to be searched contains more than a few items (a dozen, say) a binary search will require far
+            fewer comparisons than a linear search, but it imposes the requirement that the list be sorted. Similarly, a
+            hash search can be faster than a binary search but imposes still greater requirements. If the contents of
+            the array are modified between searches, maintaining these requirements may take more time than the
+            searches! And if it is known that some items will be searched for much more often than others, and it can be
+            arranged that these items are at the start of the list, then a linear search may be the best.   </p>
+
+    </div>
+    <!-- /content -->
+
+</div><!-- /page -->

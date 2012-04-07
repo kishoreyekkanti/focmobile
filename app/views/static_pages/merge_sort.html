@@ -1,0 +1,71 @@
+<div data-role="page">
+
+    <div data-role="header">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Merge Sort</h1>
+        <a href="sort_home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="a"
+           data-inline="true" title="My button" class="ui-btn ui-btn-inline ui-btn-icon-notext ui-btn-up-a"><span
+                class="ui-btn-inner"><span class="ui-btn-text">My button</span><span
+                class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <p>Merge sort is an O(n log n) comparison-based sorting algorithm. Most implementations produce a stable sort,
+            which means that the implementation preserves the input order of equal elements in the sorted output. Merge
+            sort is a divide and conquer algorithm that was invented by John von Neumann in 1945. Conceptually merge
+            sort divides the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered
+            sorted) and Repeatedly Merge sublists to produce new sublists until there is only 1 sublist remaining. (This
+            will be the sorted list.)</p>
+
+        <h3>Algorithm</h3>
+        <code>
+            #split in half <br/>
+            m = n / 2 <p/>
+            #recursive sorts <br/>
+            sort a[1..m] <br/>
+            sort a[m+1..n]<p/>
+            # merge sorted sub-arrays using temp array <br/>
+            b = copy of a[1..m]<br/>
+            i = 1, j = m+1, k = 1<br/>
+            while i <= m and j <= n,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;a[k++] = (a[j] < b[i]) ? a[j++] : b[i++]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;→ invariant: a[1..k] in final position<br/>
+            while i <= m,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;a[k++] = b[i++]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;→ invariant: a[1..k] in final position
+        </code>
+
+        <h3>Properties</h3>
+
+        <p>
+        <ul>
+            <li>Stable</li>
+            <li>Θ(n) extra space for arrays (as shown)</li>
+            <li>Θ(n·lg(n)) time            </li>
+        </ul>
+        </p>
+        <h3>Discussion</h3>
+
+        <p>Merge sort is very predictable. It makes between 0.5*log(n) and log(n) comparisons per element, and between
+            log(n) and 1.5*log(n) swaps per element. The minima are achieved for already sorted data; the maxima are
+            achieved, on average, for random data. If using Θ(n) extra space is of no concern, then merge sort is an
+            excellent choice: It is simple to implement, and it is the only stable O(n·log(n)) sorting algorithm. Note
+            that when sorting linked lists, merge sort requires only Θ(log(n)) extra space (for recursion).
+
+            Merge sort is the algorithm of choice for a variety of situations: when stability is required, when sorting
+            linked lists, and when random access is much more expensive than sequential access (for example, external
+            sorting on tape).
+
+            There do exist linear time in-place merge algorithms for the last step of the algorithm, but they are both
+            expensive and complex. The complexity is justified for applications such as external sorting when Θ(n) extra
+            space is not available.</p>
+
+        <h3>Visual guide</h3>
+
+        <p><img src="assets/merge_sort.gif" width="150" height="100"></p>
+
+    </div>
+    <!-- /content -->
+
+
+</div><!-- /page -->

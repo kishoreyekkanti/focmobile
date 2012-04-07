@@ -6,7 +6,7 @@ Focmobile::Application.routes.draw do
   #match "/application.manifest" => OFFLINE
 
   match ":action.html" => "static_pages#:action", :as => :static_page
-  root :to =>"static_pages#sort_home"
+  root :to =>"static_pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
